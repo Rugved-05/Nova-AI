@@ -8,7 +8,8 @@ export class StreamingChatService {
 
   async startStreaming(message, conversationId = null, image = null) {
     try {
-      const response = await fetch('/api/chat/stream', {
+      const base = import.meta.env.VITE_BACKEND_URL ? `${import.meta.env.VITE_BACKEND_URL}/api` : '/api';
+      const response = await fetch(`${base}/chat/stream`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

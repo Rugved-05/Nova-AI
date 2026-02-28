@@ -1,19 +1,23 @@
 [build]
 base = "frontend"
 command = "npm run build"
-publish = "frontend/build"
+publish = "build"
 
 [[redirects]]
 from = "/api/*"
-to = "https://nova-ai-jgks.onrender.com"
+to = "https://nova-ai-1-t59c.onrender.com/api/:splat"
 status = 200
 force = true
 
 [[redirects]]
 from = "/socket.io/*"
-to = "https://nova-ai-jgks.onrender.com"
+to = "https://nova-ai-1-t59c.onrender.com/socket.io/:splat"
 status = 200
 force = true
+
+[context.production.environment]
+VITE_BACKEND_URL = "https://nova-ai-1-t59c.onrender.com"
+NODE_VERSION = "20"
 
 [[headers]]
 for = "/*"
