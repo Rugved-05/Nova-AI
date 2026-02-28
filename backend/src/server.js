@@ -5,7 +5,7 @@ import helmet from 'helmet';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
 import config from './config/default.js';
-import { checkOllamaStatus } from './services/ollama-service.js';
+import { checkDeepseekStatus } from './services/deepseek-service.js';
 import chatRouter from './routes/chat.js';
 import historyRouter from './routes/history.js';
 import commandsRouter from './routes/commands.js';
@@ -81,10 +81,10 @@ app.use('/api/*', (req, res, next) => {
 
 // Health check
 app.get('/api/health', async (_req, res) => {
-  const ollama = await checkOllamaStatus();
+  const deepseek = await checkDeepseekStatus();
   res.json({
     status: 'ok',
-    ollama,
+    deepseek,
     uptime: process.uptime(),
   });
 });
@@ -122,7 +122,5 @@ setupWebSocket(io);
 // Start server
 server.listen(config.port, () => {
   console.log(`\n  NOVA Backend running on http://localhost:${config.port}`);
-  console.log(`  Ollama URL: ${config.ollama.url}`);
-  console.log(`  Model: ${config.ollama.model}`);
-  console.log(`  Vision Model: ${config.ollama.visionModel}\n`);
+  console.log(`  DeepSeek model: ${config.deepseek.model}\n`);
 });

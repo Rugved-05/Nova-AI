@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import { getHealth } from '../services/api.js';
 
-  let status = { server: false, ollama: false, model: '' };
+  let status = { server: false, deepseek: false, model: '' };
   let checking = true;
 
   onMount(() => {
@@ -17,11 +17,11 @@
       const data = await getHealth();
       status = {
         server: true,
-        ollama: data.ollama?.running || false,
-        model: data.ollama?.models?.[0] || '',
+        deepseek: data.deepseek?.running || false,
+        model: data.deepseek?.models?.[0] || '',
       };
     } catch {
-      status = { server: false, ollama: false, model: '' };
+      status = { server: false, deepseek: false, model: '' };
     }
     checking = false;
   }
@@ -32,9 +32,9 @@
     <span class="dot"></span>
     <span>Server</span>
   </div>
-  <div class="indicator" class:ok={status.ollama} class:error={!status.ollama && !checking}>
+  <div class="indicator" class:ok={status.deepseek} class:error={!status.deepseek && !checking}>
     <span class="dot"></span>
-    <span>Ollama</span>
+    <span>DeepSeek</span>
   </div>
   {#if status.model}
     <div class="model-badge">{status.model}</div>

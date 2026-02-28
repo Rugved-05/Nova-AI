@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { generateResponse } from '../services/ollama-service.js';
+import { generateResponse, generateStreamResponse } from '../services/deepseek-service.js';
 import { addMessage, getContext, createConversation } from '../services/memory-service.js';
 import { parseCommands, stripCommands, executeCommand } from '../services/command-service.js';
 import { getWeather } from '../services/weather-service.js';
@@ -69,7 +69,7 @@ router.post('/', async (req, res) => {
     });
   } catch (err) {
     console.error('Chat error:', err.message);
-    res.status(500).json({ error: 'Failed to generate response. Is Ollama running?' });
+    res.status(500).json({ error: 'Failed to generate response.' });
   }
 });
 

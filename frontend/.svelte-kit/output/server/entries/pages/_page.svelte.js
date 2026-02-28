@@ -838,8 +838,11 @@ function SettingsPanel($$renderer, $$props) {
 }
 function StatusIndicator($$renderer, $$props) {
   $$renderer.component(($$renderer2) => {
-    let status = { server: false, ollama: false };
-    $$renderer2.push(`<div class="status-bar svelte-193vlpn"><div${attr_class("indicator svelte-193vlpn", void 0, { "ok": status.server, "error": false })}><span class="dot svelte-193vlpn"></span> <span>Server</span></div> <div${attr_class("indicator svelte-193vlpn", void 0, { "ok": status.ollama, "error": false })}><span class="dot svelte-193vlpn"></span> <span>Ollama</span></div> `);
+    let status = { server: false, deepseek: false };
+    $$renderer2.push(`<div class="status-bar svelte-193vlpn"><div${attr_class("indicator svelte-193vlpn", void 0, { "ok": status.server, "error": false })}><span class="dot svelte-193vlpn"></span> <span>Server</span></div> <div${attr_class("indicator svelte-193vlpn", void 0, {
+      "ok": status.deepseek,
+      "error": false
+    })}><span class="dot svelte-193vlpn"></span> <span>DeepSeek</span></div> `);
     {
       $$renderer2.push("<!--[!-->");
     }

@@ -1,4 +1,4 @@
-import { generateStreamResponse } from '../services/ollama-service.js';
+import { generateStreamResponse } from '../services/deepseek-service.js';
 import { addMessage, getContext, createConversation } from '../services/memory-service.js';
 import { parseCommands, stripCommands, executeCommand } from '../services/command-service.js';
 import { getWeather } from '../services/weather-service.js';
