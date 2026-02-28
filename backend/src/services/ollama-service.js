@@ -1,5 +1,5 @@
 import OpenAI from "openai";
-import config from "../../config/default.js";
+import config from "../config/default.js";
 
 const openai = new OpenAI({
   apiKey: config.deepseek.apiKey,
