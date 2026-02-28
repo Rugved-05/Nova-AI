@@ -8,6 +8,10 @@
     "dev:frontend": "cd frontend && npm run dev"
   },
   "devDependencies": {
+    "@sveltejs/adapter-vercel": "^6.3.3",
     "concurrently": "^9.1.0"
+  },
+  "dependencies": {
+    "openai": "^6.25.0"
   }
 }
