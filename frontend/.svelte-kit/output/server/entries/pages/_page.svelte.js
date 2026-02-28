@@ -925,7 +925,8 @@ let socket = null;
 const listeners = /* @__PURE__ */ new Map();
 function connect() {
   if (socket?.connected) return socket;
-  socket = io("/", {
+  const backendUrl = void 0;
+  socket = io(backendUrl, {
     transports: ["websocket", "polling"],
     reconnection: true,
     reconnectionDelay: 1e3,

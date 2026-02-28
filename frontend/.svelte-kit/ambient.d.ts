@@ -38,6 +38,7 @@
  * The above values will be the same _even if_ different values for `ENVIRONMENT` or `PUBLIC_BASE_URL` are set at runtime, as they are statically replaced in your code with their build time values.
  */
 declare module '$env/static/private' {
+	export const VITE_API_URL: string;
 	export const AHA_CHROME_CRASHPAD_PIPE_NAME: string;
 	export const ALLUSERSPROFILE: string;
 	export const APPDATA: string;
@@ -208,6 +209,7 @@ declare module '$env/static/public' {
  */
 declare module '$env/dynamic/private' {
 	export const env: {
+		VITE_API_URL: string;
 		AHA_CHROME_CRASHPAD_PIPE_NAME: string;
 		ALLUSERSPROFILE: string;
 		APPDATA: string;
