@@ -1,0 +1,267 @@
+{
+  "default": {
+    "id": "default",
+    "preferences": {
+      "conversationStyle": "casual",
+      "topicsOfInterest": [],
+      "favoriteTopics": [],
+      "dislikedTopics": [],
+      "responseLength": "medium",
+      "tonePreference": "friendly"
+    },
+    "behaviorPatterns": {
+      "interactionTimes": [],
+      "responsePreferences": {
+        "speed": "normal",
+        "detailLevel": "balanced"
+      },
+      "frequentlyAskedQuestions": [],
+      "commonRequests": []
+    },
+    "voiceCharacteristics": {
+      "speakingPattern": {},
+      "preferredInteractionStyle": "conversational"
+    },
+    "memory": {
+      "personalFacts": {},
+      "conversationHistory": [],
+      "learnedPreferences": {},
+      "importantDates": []
+    },
+    "learningMetrics": {
+      "adaptationScore": 0,
+      "interactionCount": 0,
+      "satisfactionRating": 0,
+      "preferenceAccuracy": 0
+    },
+    "createdAt": "2026-02-27T16:08:17.157Z",
+    "updatedAt": "2026-02-27T16:08:17.159Z"
+  },
+  "c2612557-5e3f-47b3-b4eb-40fb230283c8": {
+    "id": "default",
+    "preferences": {
+      "conversationStyle": "casual",
+      "topicsOfInterest": [],
+      "favoriteTopics": [],
+      "dislikedTopics": [],
+      "responseLength": "medium",
+      "tonePreference": "friendly"
+    },
+    "behaviorPatterns": {
+      "interactionTimes": [
+        "2026-02-27T16:27:08.651Z",
+        "2026-02-27T17:27:20.579Z",
+        "2026-02-27T17:27:59.854Z",
+        "2026-02-27T17:42:39.880Z",
+        "2026-02-27T17:42:57.002Z",
+        "2026-02-27T17:43:11.621Z",
+        "2026-02-28T09:23:07.569Z",
+        "2026-02-28T09:26:47.705Z",
+        "2026-02-28T10:00:06.210Z"
+      ],
+      "responsePreferences": {
+        "speed": "normal",
+        "detailLevel": "balanced"
+      },
+      "frequentlyAskedQuestions": [
+        {
+          "question": "hi",
+          "count": 6,
+          "lastAsked": "2026-02-27T16:27:08.651Z"
+        },
+        {
+          "question": "jarvis lock the screen",
+          "count": 1,
+          "lastAsked": "2026-02-27T17:27:59.854Z"
+        },
+        {
+          "question": "lock the screen",
+          "count": 1,
+          "lastAsked": "2026-02-27T17:42:57.002Z"
+        },
+        {
+          "question": "open notepad",
+          "count": 1,
+          "lastAsked": "2026-02-27T17:43:11.621Z"
+        }
+      ],
+      "commonRequests": []
+    },
+    "voiceCharacteristics": {
+      "speakingPattern": {},
+      "preferredInteractionStyle": "conversational"
+    },
+    "memory": {
+      "personalFacts": {},
+      "conversationHistory": [],
+      "learnedPreferences": {},
+      "importantDates": []
+    },
+    "learningMetrics": {
+      "adaptationScore": 0,
+      "interactionCount": 9,
+      "satisfactionRating": 0,
+      "preferenceAccuracy": 0
+    },
+    "createdAt": "2026-02-27T16:26:51.034Z",
+    "updatedAt": "2026-02-28T10:00:06.210Z"
+  },
+  "de6eb054-a72d-459f-ba9f-c22a0c025a24": {
+    "id": "default",
+    "preferences": {
+      "conversationStyle": "casual",
+      "topicsOfInterest": [],
+      "favoriteTopics": [],
+      "dislikedTopics": [],
+      "responseLength": "medium",
+      "tonePreference": "friendly"
+    },
+    "behaviorPatterns": {
+      "interactionTimes": [
+        "2026-02-27T16:31:15.451Z"
+      ],
+      "responsePreferences": {
+        "speed": "normal",
+        "detailLevel": "balanced"
+      },
+      "frequentlyAskedQuestions": [
+        {
+          "question": "hi",
+          "count": 1,
+          "lastAsked": "2026-02-27T16:31:15.451Z"
+        }
+      ],
+      "commonRequests": []
+    },
+    "voiceCharacteristics": {
+      "speakingPattern": {},
+      "preferredInteractionStyle": "conversational"
+    },
+    "memory": {
+      "personalFacts": {},
+      "conversationHistory": [],
+      "learnedPreferences": {},
+      "importantDates": []
+    },
+    "learningMetrics": {
+      "adaptationScore": 0,
+      "interactionCount": 1,
+      "satisfactionRating": 0,
+      "preferenceAccuracy": 0
+    },
+    "createdAt": "2026-02-27T16:31:12.878Z",
+    "updatedAt": "2026-02-27T16:31:15.451Z"
+  },
+  "fe32f946-b118-4021-a184-250d1263de9c": {
+    "id": "default",
+    "preferences": {
+      "conversationStyle": "casual",
+      "topicsOfInterest": [],
+      "favoriteTopics": [],
+      "dislikedTopics": [],
+      "responseLength": "medium",
+      "tonePreference": "friendly"
+    },
+    "behaviorPatterns": {
+      "interactionTimes": [
+        "2026-02-28T10:05:29.545Z",
+        "2026-02-28T10:24:54.577Z",
+        "2026-02-28T10:25:46.267Z"
+      ],
+      "responsePreferences": {
+        "speed": "normal",
+        "detailLevel": "balanced"
+      },
+      "frequentlyAskedQuestions": [
+        {
+          "question": "hi",
+          "count": 2,
+          "lastAsked": "2026-02-28T10:05:29.545Z"
+        },
+        {
+          "question": "how do i look access camera and say !",
+          "count": 1,
+          "lastAsked": "2026-02-28T10:25:46.267Z"
+        }
+      ],
+      "commonRequests": []
+    },
+    "voiceCharacteristics": {
+      "speakingPattern": {},
+      "preferredInteractionStyle": "conversational"
+    },
+    "memory": {
+      "personalFacts": {},
+      "conversationHistory": [],
+      "learnedPreferences": {},
+      "importantDates": []
+    },
+    "learningMetrics": {
+      "adaptationScore": 0,
+      "interactionCount": 3,
+      "satisfactionRating": 0,
+      "preferenceAccuracy": 0
+    },
+    "createdAt": "2026-02-28T10:05:21.026Z",
+    "updatedAt": "2026-02-28T10:25:46.267Z"
+  },
+  "412fee9c-d049-4c3b-936e-c5618301659e": {
+    "id": "default",
+    "preferences": {
+      "conversationStyle": "casual",
+      "topicsOfInterest": [],
+      "favoriteTopics": [],
+      "dislikedTopics": [],
+      "responseLength": "medium",
+      "tonePreference": "friendly"
+    },
+    "behaviorPatterns": {
+      "interactionTimes": [
+        "2026-02-28T10:45:02.766Z",
+        "2026-02-28T10:47:55.622Z",
+        "2026-02-28T11:01:07.540Z",
+        "2026-02-28T11:05:13.654Z"
+      ],
+      "responsePreferences": {
+        "speed": "normal",
+        "detailLevel": "balanced"
+      },
+      "frequentlyAskedQuestions": [
+        {
+          "question": "hi",
+          "count": 2,
+          "lastAsked": "2026-02-28T10:45:02.766Z"
+        },
+        {
+          "question": "whats the time !",
+          "count": 1,
+          "lastAsked": "2026-02-28T10:47:55.622Z"
+        },
+        {
+          "question": "goood day today !",
+          "count": 1,
+          "lastAsked": "2026-02-28T11:05:13.654Z"
+        }
+      ],
+      "commonRequests": []
+    },
+    "voiceCharacteristics": {
+      "speakingPattern": {},
+      "preferredInteractionStyle": "conversational"
+    },
+    "memory": {
+      "personalFacts": {},
+      "conversationHistory": [],
+      "learnedPreferences": {},
+      "importantDates": []
+    },
+    "learningMetrics": {
+      "adaptationScore": 0,
+      "interactionCount": 4,
+      "satisfactionRating": 0,
+      "preferenceAccuracy": 0
+    },
+    "createdAt": "2026-02-28T10:44:46.311Z",
+    "updatedAt": "2026-02-28T11:05:13.654Z"
+  }
+}
