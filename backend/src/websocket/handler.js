@@ -14,83 +14,102 @@ export function setupWebSocket(io) {
 
     socket.on('chat_message', async ({ message, conversationId: cid, image, userId }) => {
       try {
+        console.log("---- NEW CHAT MESSAGE ----");
+        console.log("Message:", message);
+        console.log("User ID:", userId);
+
         const conversationId = cid || createConversation();
         addMessage(conversationId, 'user', message);
+
         if (userId) {
-          await logEvent(userId, { type: 'user_message', conversationId, content: message });
+          await logEvent(userId, {
+            type: 'user_message',
+            conversationId,
+            content: message,
+          });
         }
+
         const context = getContext(conversationId);
 
         socket.emit('ai_response_start', { conversationId });
 
         const images = image ? [image] : [];
-        const fullText = await generateStreamResponse(context, (chunk) => {
-          socket.emit('ai_response_chunk', { chunk, conversationId });
-        }, images, conversationId);
-        
-        // Record the interaction for learning
+
+        console.log("Generating streaming response...");
+        console.log("Context length:", context.length);
+
+        const fullText = await generateStreamResponse(
+          context,
+          (chunk) => {
+            socket.emit('ai_response_chunk', { chunk, conversationId });
+          },
+          images,
+          userId || 'default'
+        );
+
+        console.log("Full response received from model.");
+        console.log("Response length:", fullText?.length);
+
         await userProfileService.recordInteraction(conversationId, {
           question: message,
           response: fullText,
         });
-        
-        // Perform behavioral analysis
+
         await behavioralAnalysisService.analyzeUserBehavior(conversationId, [{
           question: message,
           response: fullText,
           timestamp: new Date().toISOString(),
         }]);
-        
-        // Update contextual memory
+
         await contextualMemoryService.updateMemory(conversationId, conversationId, {
           question: message,
           response: fullText,
         });
 
-        // Process commands from full response
         const commands = parseCommands(fullText);
         const commandResults = [];
 
         for (const cmd of commands) {
-          if (cmd.type === 'weather') {
-            const weather = await getWeather(cmd.arg || 'New York');
-            if (!weather.error) {
-              commandResults.push({ type: 'weather', data: weather });
-              if (userId) {
-                await logEvent(userId, { type: 'command', command: 'weather', arg: cmd.arg || 'New York', result: weather });
+          try {
+            if (cmd.type === 'weather') {
+              const weather = await getWeather(cmd.arg || 'New York');
+              if (!weather.error) {
+                commandResults.push({ type: 'weather', data: weather });
               }
-            }
-          } else if (cmd.type === 'news') {
-            const news = await getNews(cmd.arg || 'general', 5);
-            if (!news.error) {
-              commandResults.push({ type: 'news', data: news });
-              if (userId) {
-                await logEvent(userId, { type: 'command', command: 'news', arg: cmd.arg || 'general', result: news });
+            } else if (cmd.type === 'news') {
+              const news = await getNews(cmd.arg || 'general', 5);
+              if (!news.error) {
+                commandResults.push({ type: 'news', data: news });
               }
+            } else {
+              const result = await executeCommand(cmd);
+              commandResults.push({ type: cmd.type, ...result });
             }
-          } else {
-            const result = await executeCommand(cmd);
-            commandResults.push({ type: cmd.type, ...result });
-            if (userId) {
-              await logEvent(userId, { type: 'command', command: cmd.type, arg: cmd.arg || '', result });
-            }
+          } catch (cmdErr) {
+            console.error("Command execution error:", cmdErr);
           }
         }
 
         const cleanText = stripCommands(fullText);
         addMessage(conversationId, 'assistant', cleanText);
-        if (userId) {
-          await logEvent(userId, { type: 'assistant_response', conversationId, content: cleanText });
-        }
 
         socket.emit('ai_response_complete', {
           response: cleanText,
           conversationId,
           commands: commandResults,
         });
+
       } catch (err) {
-        console.error('WebSocket chat error:', err.message);
-        socket.emit('error', { message: 'Failed to generate response. Is Ollama running?' });
+        console.error("🚨 FULL WEBSOCKET ERROR:");
+        console.error(err);
+        console.error("Stack:", err?.stack);
+
+        socket.emit('error', {
+          message:
+            err?.response?.data?.error?.message ||
+            err?.message ||
+            'Unknown server error',
+        });
       }
     });
 
